@@ -1,12 +1,11 @@
 const AnimeScraper = require('ctk-anime-scraper')
 const Gogoanime = new AnimeScraper.Gogoanime()
 
-module.exports = ()=>{
+module.exports = (req, res)=>{
     try{
-        res.send('Anime')
-        // Gogoanime.fetchAnime(req.body.link).then(data=>{
-        //     res.send(req.body);
-        // })
+        Gogoanime.fetchAnime(req.body.link).then(data=>{
+            res.send(data);
+        })
     }catch(err){
         res.status(500).send(err)
     }

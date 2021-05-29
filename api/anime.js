@@ -4,7 +4,7 @@ const Gogoanime = new AnimeScraper.Gogoanime()
 module.exports = ()=>{
     try{
         Gogoanime.fetchAnime(req.body.link).then(data=>{
-            res.send(data);
+            res.send(req.body);
         })
     }catch(err){
         res.status(500).send(err)

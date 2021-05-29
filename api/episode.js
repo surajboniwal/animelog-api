@@ -3,8 +3,8 @@ const Gogoanime = new AnimeScraper.Gogoanime()
 
 module.exports = (req, res)=>{
     try{
-        Gogoanime.search(req.body.name).then(result=>{
-            res.send(result)
+        Gogoanime.getEpisodes(req.body.slug, req.body.num).then(data=>{
+            res.send(data);
         })
     }catch(err){
         res.status(500).send(err)
